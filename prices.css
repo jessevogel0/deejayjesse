@@ -1,0 +1,273 @@
+.head-title {
+    font-size: 72px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 36px;
+    text-align: center;
+}
+
+.pricing-card {
+    background: linear-gradient(to bottom, #222 70%, #161616 100%);
+    padding: 24px 22px;
+    border-radius: 12px;
+    text-align: center;
+    height: auto; /* Belangrijk: hoogte op auto zetten! */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 2px solid;
+    position: relative;
+    margin-bottom: 36px;
+    min-width: 360px;
+    transition: all 0.3s ease;
+    align-items: flex-start;
+}
+
+.standard {
+    border-color: #ccc;
+}
+
+.all-inclusive {
+    border-color: #00ffaa;
+    border-radius: 12px;
+    animation: border-animation 1.5s infinite alternate;
+}
+
+@keyframes border-animation {
+    0% { border-color: #00ffaa; }
+    100% { border-color: #6060ff; }
+}
+
+@keyframes background-animation {
+    0% { background: #00ffaa; }
+    100% { background: #6060ff; }
+}
+
+.only-dj {
+    border-color: #ff0066;
+}
+
+.pricing-card h2 {
+    margin: 6px auto -12px auto;
+    font-size: 41px;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: #e5e5e5;
+    font-size: 28px;
+    font-weight: 300;
+    margin: 0 auto;
+}
+
+.recommended-label {
+    position: absolute;
+    top: 7.25rem;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to right, #a0561700 0%, rgba(208, 135, 43, 0.35) 21%, rgba(254, 212, 92, 0.35) 38%, rgba(247, 191, 75, 0.35) 56%, rgba(208, 135, 43, 0.35)80%, #a0561700 100%);
+    padding: 2px;
+    color: #fff;
+    font-weight: 400;
+    font-size: 19px;
+    text-transform: uppercase;
+    letter-spacing: 1.25px;
+    text-align: center;
+    z-index: 1;
+}
+
+.features {
+    margin-top: 64px;
+    list-style: none;
+    padding: 0;
+    flex-grow: 1;
+}
+
+.features li {
+    margin: 11px -4px;
+    align-items: center;
+    color: #cccccc;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 11px;
+    display: flex;
+}
+
+.features li .icon {
+    margin-right: 6px;
+    font-size: 15px;
+}
+
+.features li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    color: white;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    font-size: 18px;
+    margin-top: 12px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Hover-effect: donkerdere achtergrond via inset box-shadow (tekstkleur blijft intact) */
+.btn:hover {
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+}
+
+/* Zorg ervoor dat de tekst niet vervaagt */
+.btn span {
+    position: relative;
+    z-index: 2;
+}
+
+/* Pijlen toevoegen */
+.btn::before,
+.btn::after {
+    position: absolute;
+    font-size: 20px;
+    margin-top: -2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    z-index: 1;
+}
+
+.btn::before {
+    content: "«";
+    right: 10px;
+    transform: translateX(20px);
+}
+
+.btn::after {
+    content: "»";
+    left: 10px;
+    transform: translateX(-20px);
+}
+
+/* Bij hover komen de pijlen tevoorschijn */
+.btn:hover::before {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.btn:hover::after {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Kleurinstellingen per prijzencategorie */
+.standard .btn {
+    background: rgba(204, 204, 204, 0.8);
+    color: white;
+}
+
+.all-inclusive .btn {
+    background-color: #00ffaa;
+    animation: background-animation 1.5s infinite alternate;
+    color: white;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+}
+
+.only-dj .btn {
+    background: #ff0066;
+    color: white;
+}
+
+/* Responsiveness voor kleinere laptops, tablets en telefoons */
+@media (max-width: 767.98px) {
+    .pricing-card {
+        height: auto; /* Verander dit! */
+        margin-bottom: 24px;
+        min-width: auto;
+        width: 100%;
+        text-align: center;
+        align-items: center;
+    }
+
+    .pricing-card h2 {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .subtitle {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .features {
+        margin-top: 32px;
+    }
+
+    .features li {
+        margin-left: -4px;
+        margin-right: -4px;
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+
+    .features li .icon {
+        margin-right: 12px;
+    }
+
+    .btn {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .pricing-card {
+        height: auto; /* Verander dit! */
+        margin-bottom: 30px;
+        min-width: auto;
+        text-align: center;
+        align-items: center;
+    }
+
+    .pricing-card h2 {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .subtitle {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .features li {
+        margin-left: -4px;
+        margin-right: -4px;
+    }
+}
+
+@media (min-width: 992px) {
+    .pricing-card {
+        height: auto; /* Verander dit! */
+        text-align: center;
+        align-items: center;
+    }
+
+    .pricing-card h2 {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .subtitle {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .features li {
+        margin-left: -4px;
+        margin-right: -4px;
+    }
+}

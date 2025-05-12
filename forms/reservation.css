@@ -1,0 +1,49 @@
+/* body {
+    background-color: #e9ecef;
+    padding: 20px;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+} */
+
+/* Modal Stijlen */
+.modal-content.bg-dark { background-color: #333 !important; }
+.form-control-custom, .form-select-custom {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    color: #fff !important;
+    border-color: #6c757d !important;
+}
+.form-control-custom::placeholder { color: #adb5bd; }
+.form-control-custom:focus, .form-select-custom:focus {
+    background-color: rgba(255, 255, 255, 0.25) !important;
+    color: #fff !important;
+    border-color: #ccc !important;
+    box-shadow: none !important;
+}
+.form-control-custom[type="date"]::-webkit-calendar-picker-indicator,
+.form-control-custom[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.8);
+}
+.btn-next-custom { background-color: #00ffaa; color: #000; border-color: #00ffaa; }
+.btn-next-custom:hover, .btn-next-custom:focus { background-color: #00e699; color: #000; border-color: #00d288; }
+.btn-submit-custom { background-color: #6060ff; color: #fff; border-color: #6060ff; }
+.btn-submit-custom:hover, .btn-submit-custom:focus { background-color: #5050f0; color: #fff; border-color: #4040e0; }
+.form-step { transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; }
+.form-step.d-none { opacity: 0; transform: translateX(20px); }
+.form-step.active-step { display: block !important; opacity: 1; transform: translateX(0); }
+
+#successMessageContainer {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.1); 
+    border-radius: 0.3rem; 
+}
+
+#successText[style*="scale(0)"] { transform: scale(0) translateY(50px) !important; opacity: 0 !important; }
+#successText.animate-popup { animation: popupAnimationBootstrap 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards; }
+@keyframes popupAnimationBootstrap {
+    0% { transform: scale(0) translateY(50px); opacity: 0; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+.error-message { min-height: 1.25em; }
