@@ -1,0 +1,653 @@
+#hero-bio {
+    background-color: var(--background-color); /* Maakt de hero banner de donkere achtergrondkleur van de body */
+    padding-top: 100px; /* Meer padding bovenaan voor hero */
+    padding-bottom: 100px; /* Meer padding onderaan voor hero */
+    text-align: center;
+    overflow: hidden;
+    border-bottom: 2px solid #0d0d0d; /* Subtiele scheiding */
+    margin-top: 0 !important; /* Geen extra marge boven de eerste sectie */
+    /* De basis padding, position, z-index van `section` worden overgenomen van main.css */
+}
+
+#hero-bio::after {
+    display: none; /* Verwijder de fade out van de hero banner */
+}
+
+#hero-bio h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4.8em; /* Grote titel */
+    margin-bottom: 20px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: #ffffff; /* Witte titel */
+}
+
+#hero-bio p.sub-tagline {
+    font-size: 1.4em;
+    color: var(--text); /* Lichtgrijze beschrijving, gebruikt variabele */
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* --- Algemene Sectie Stijlen voor Biografiepagina --- */
+/* Deze regels overschrijven de standaard `section` styling alleen waar nodig */
+.page-section {
+    /* border-radius: 15px; */ /* Afgeronde hoeken voor secties */
+    overflow: hidden; /* Zorgt dat content binnen afgeronde hoeken blijft */
+    /* margin-bottom: 40px; */ /* Ruimte onder de sectie */
+    /* padding-top: 80px; */ /* VOEGT RUIMTE BOVEN DE INHOUD TOE */
+    /* padding-bottom: 80px; */ /* Behoud bestaande padding onderaan */
+    /* De standaard background-color: var(--section-bg); padding-left/right: 32px;
+       worden overgenomen van main.css. */
+}
+
+.page-section:first-of-type { /* Als de eerste sectie geen hero-bio is */
+    padding-top: 100px; /* Meer padding bovenaan als het de eerste sectie is */
+}
+
+.page-section:last-of-type {
+    margin-bottom: 0; /* Geen marge onder de laatste sectie */
+}
+
+.page-section .section-subtitle {
+    color: var(--text); /* Lichtgrijze beschrijving */
+    margin-bottom: 60px; /* Ruime marge onder subtitle */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Call to Action Button Style (NU MET NIEUWE STIJL) --- */
+.btn-reserveer, /* Aangepast */
+.btn-fotos, /* Nieuw toegevoegd */
+.download-btn {
+  background-color: #222 !important;
+  border: 1px solid #cccccc40 !important;
+  color: #fff !important;
+  transition: 0.2s ease-in;
+}
+
+.btn-reserveer:hover, /* Aangepast */
+.btn-fotos:hover, /* Nieuw toegevoegd */
+.download-btn:hover {
+  border-color: #ccc !important;
+  color: #fff !important;
+}
+
+
+/* --- Sectie: Mijn Persoonlijk Verhaal --- */
+#personal-story .content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 50px; /* Ruimte tussen afbeelding en tekst */
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left; /* Specifieke alignment voor deze sectie content */
+}
+
+#personal-story .profile-img-wrapper {
+    flex-shrink: 0;
+    width: 350px;
+    height: 350px;
+    position: relative;
+    border-radius: 15px; /* Belangrijk voor mask */
+    overflow: hidden; /* Zorgt dat de gradiënt binnen de wrapper blijft */
+}
+
+#personal-story .profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px; /* Afgeronde hoeken voor de foto */
+    border: none;
+    box-shadow: none;
+    display: block;
+}
+
+#personal-story .profile-img-wrapper::before { /* Gradiëntrand */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 15px;
+    padding: 4px; /* Dikte van de rand */
+    background: linear-gradient(45deg, var(--main-color-aqua), var(--main-color-violet));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 1; /* Boven de afbeelding */
+}
+
+#personal-story .profile-img-wrapper::after { /* Gradiënt gloed */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 15px;
+    background: linear-gradient(45deg, var(--main-color-aqua), var(--main-color-violet));
+    filter: blur(15px); /* Vervaagde gloed */
+    opacity: 0.4;
+    z-index: 0; /* Achter de afbeelding */
+    transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+#personal-story .profile-img-wrapper:hover::after {
+    opacity: 0.6;
+    filter: blur(20px);
+}
+
+#personal-story .text-content {
+    flex-grow: 1;
+}
+
+#personal-story .text-content h3 {
+    color: #a3a3a3;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+#personal-story .text-content h2 {
+    /* font-size: 3em; */
+    color: #ffffff;
+    margin-bottom: 18px;
+    /* line-height: 1.2; */
+    text-align: left;
+}
+
+#personal-story .text-content p {
+    color: var(--text);
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-size: 1.1em;
+}
+
+/* --- Sectie: Mijn Filosofie: Meer dan Draaien (NIEUWE 'STATEMENT BLOCK' STIJL) --- */
+#dj-philosophy {
+    /* background-color: var(--background-color); */ /* Donkerder dan section-bg om het te laten opvallen */
+    padding: 48px 32px; /* Royale padding, overrides section padding */
+    /* border-radius en margin-bottom/top worden al door .page-section en de algemene `section` regels beheerd */
+}
+
+#dj-philosophy .philosophy-blocks-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.philosophy-block {
+    padding: 60px 40px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.philosophy-block:nth-child(even) {
+    background-color: var(--section-bg);
+}
+
+.philosophy-block:nth-child(odd) {
+    background-color: var(--background-color); /* Donkerder voor afwisseling */
+}
+
+.philosophy-block .philosophy-number {
+    font-size: 6em;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 20px;
+    background-image: linear-gradient(9deg, var(--main-color-aqua) 30%, var(--main-color-violet) 70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.philosophy-block:hover .philosophy-number {
+    transform: scale(1.15);
+}
+
+.philosophy-block h3 {
+    /* font-family: 'Montserrat', sans-serif; */
+    font-size: 2.5em;
+    color: #ffffff;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.philosophy-block p {
+    font-size: 0.9rem;
+    color: var(--text);
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* --- Sectie: Perskit (Verplicht) --- */
+#press-media .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.press-photo-card {
+    background-color: var(--background-color); /* Donkerder dan section-bg voor kaarten */
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    border: 1px solid #282828;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.press-photo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.press-photo-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid #282828;
+}
+
+.press-photo-card .photo-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.press-photo-card .photo-info h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3em;
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.press-photo-card .photo-info p {
+    color: var(--text);
+    margin-bottom: 15px;
+    font-size: 0.9em;
+}
+
+/* .download-btn styling wordt nu beheerd door .btn-reserveer en .btn-fotos selectors hierboven */
+
+
+/* --- Simple Slider Styles - Aangepast voor Bootstrap Carousel --- */
+#simple-slider {
+    padding-bottom: 80px; /* Extra padding onder de slider */
+}
+
+/* De main container is nu de Bootstrap Carousel */
+#creativeJourneyCarousel {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border: 2px solid #282828;
+}
+
+/* De .carousel-item vervangt nu je .slide */
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Afbeeldingen binnen de carousel-item */
+.carousel-item img {
+    display: block; /* Removes extra space below image */
+    width: 100%; /* Ensure image fills the carousel item */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Styling voor de carousel-caption, vervangt je .slide-caption */
+.carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2));
+    color: #ffffff;
+    padding: 30px 20px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+    right: 0;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+    z-index: 5; /* Ensure caption is above the image but below controls */
+}
+
+/* Hover-effect voor de carousel-caption */
+#creativeJourneyCarousel:hover .carousel-caption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.carousel-caption h5 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.carousel-caption p {
+    font-size: 1.1em;
+    margin-bottom: 0;
+}
+
+/* --- Styling voor de navigatieknoppen (prev/next) van de Bootstrap Carousel --- */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    opacity: 1;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    border: none; /* Override Bootstrap's default border */
+    padding: 0; /* Remove default padding */
+}
+
+.carousel-control-prev {
+    left: 20px;
+}
+
+.carousel-control-next {
+    right: 20px;
+}
+
+/* Hover-effect voor de carrouselknoppen */
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    color: #fff;
+    opacity: 1;
+}
+
+/* Styling voor de iconen (pijlen) binnen de knoppen zelf (Bootstrap specifieke icons) */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 25px;
+    height: 25px;
+    background-size: 100% 100%;
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* Styling voor de indicator dots */
+.carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 11;
+    margin-bottom: 0;
+    padding-left: 0; /* Remove default Bootstrap list styling */
+    list-style: none; /* Remove default Bootstrap list styling */
+}
+
+.carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    opacity: 1;
+    margin: 0; /* Remove default Bootstrap button margin */
+    padding: 0; /* Remove default Bootstrap button padding */
+    box-sizing: content-box; /* Ensure width/height are as specified */
+    background-clip: padding-box; /* Prevent background from extending beyond padding */
+    border-top: 0; /* Remove default Bootstrap indicator border */
+    border-bottom: 0; /* Remove default Bootstrap indicator border */
+}
+
+.carousel-indicators button.active,
+.carousel-indicators button:hover {
+    background-color: var(--main-color-aqua);
+    transform: scale(1.2);
+}
+
+/* Responsive adjustments for overall sections */
+@media (max-width: 992px) {
+    #hero-bio h1 {
+        font-size: 3.8em;
+    }
+    #hero-bio p.sub-tagline {
+        font-size: 1.1em;
+    }
+    #personal-story .content-wrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+    #personal-story .profile-img-wrapper {
+        width: 280px;
+        height: 280px;
+    }
+    #personal-story .text-content h2,
+    #personal-story .text-content h3,
+    #personal-story .text-content p {
+        text-align: center;
+    }
+    .page-section h2 {
+        font-size: 2.8em;
+    }
+    .page-section .section-subtitle {
+        font-size: 1.1em;
+    }
+    #dj-philosophy .philosophy-blocks-container {
+        max-width: 100%;
+    }
+    .philosophy-block {
+        padding: 40px 25px;
+    }
+    .philosophy-block .philosophy-number {
+        font-size: 5em;
+    }
+    .philosophy-block h3 {
+        font-size: 2.2em;
+    }
+    .philosophy-block p {
+        font-size: 0.85rem;
+    }
+    .photo-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .press-photo-card img {
+        height: 180px;
+    }
+    /* Responsive adjustments for Bootstrap Carousel */
+    .carousel-caption h5 {
+        font-size: 1.5em;
+    }
+    .carousel-caption p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+    #hero-bio {
+        padding: 80px 0;
+    }
+    #hero-bio h1 {
+        font-size: 3em;
+    }
+    #hero-bio p.sub-tagline {
+        font-size: 1em;
+    }
+    .page-section {
+        padding: 60px 0;
+    }
+    .page-section h2 {
+        font-size: 2.2em;
+        margin-bottom: 10px;
+    }
+    .page-section .section-subtitle {
+        font-size: 1em;
+        margin-bottom: 40px;
+    }
+    #personal-story .profile-img-wrapper {
+        width: 250px;
+        height: 250px;
+    }
+    .btn-reserveer,
+    .btn-fotos {
+        font-size: 1em;
+        padding: 12px 25px;
+    }
+    .press-photo-card img {
+        height: 150px;
+    }
+    #dj-philosophy {
+        padding: 80px 0;
+    }
+    .philosophy-block .philosophy-number {
+        font-size: 4em;
+    }
+    .philosophy-block h3 {
+        font-size: 1.8em;
+    }
+    .philosophy-block p {
+        font-size: 0.8rem;
+    }
+    /* Responsive adjustments for Bootstrap Carousel */
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 50px;
+        height: 50px;
+    }
+    .carousel-control-prev {
+        left: 10px;
+    }
+    .carousel-control-next {
+        right: 10px;
+    }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 20px;
+        height: 20px;
+    }
+    .carousel-caption {
+        padding: 20px 15px 15px;
+    }
+    .carousel-caption h5 {
+        font-size: 1.3em;
+    }
+    .carousel-caption p {
+        font-size: 0.9em;
+    }
+    .carousel-indicators {
+        bottom: 10px;
+    }
+    .carousel-indicators button {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    #hero-bio {
+        padding: 60px 0;
+    }
+    #hero-bio h1 {
+        font-size: 2.5em;
+        letter-spacing: 0px;
+    }
+    #hero-bio p.sub-tagline {
+        font-size: 0.9em;
+    }
+    .page-section {
+        padding: 40px 0;
+    }
+    .page-section h2 {
+        font-size: 1.8em;
+    }
+    #personal-story .profile-img-wrapper {
+        width: 200px;
+        height: 200px;
+    }
+    #personal-story .text-content h2 {
+        font-size: 2em;
+    }
+    #personal-story .text-content p {
+        font-size: 1em;
+    }
+    .philosophy-block {
+        padding: 30px 20px;
+    }
+    .philosophy-block .philosophy-number {
+        font-size: 3.25em;
+    }
+    .philosophy-block h3 {
+        font-size: 1.6em;
+    }
+    .philosophy-block p {
+        font-size: 0.75rem;
+    }
+    /* Responsive adjustments for Bootstrap Carousel */
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 40px;
+        height: 40px;
+    }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 18px;
+        height: 18px;
+    }
+    .carousel-caption {
+        padding: 15px 10px 10px;
+    }
+    .carousel-caption h5 {
+        font-size: 1.1em;
+    }
+    .carousel-caption p {
+        font-size: 0.8em;
+    }
+    .carousel-indicators {
+        bottom: 5px;
+        gap: 5px;
+    }
+    .carousel-indicators button {
+        width: 8px;
+        height: 8px;
+    }
+}
