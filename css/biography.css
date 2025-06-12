@@ -1,0 +1,762 @@
+/* Stijl voor de gradient op de icoontjes */
+.icon-gradient {
+    background: linear-gradient(to top, #00ffaa, #6060ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Stijl voor de contactkaarten */
+.contact-card {
+    background-color: #222; /* Aangepast naar #222 */
+    border-radius: 0.75rem;
+    padding: 1.8rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #cccccc40; /* Aangepast naar #cccccc40 */
+    color: white; /* Algemene tekstkleur binnen de kaart */
+    text-decoration: none; /* Verwijder onderstreping voor de kaart-inhoud als er geen link is */
+    position: relative; /* Belangrijk: Om het label absoluut te kunnen positioneren */
+    height: 100%; /* Zorgt dat alle kaarten gelijke hoogte hebben in een grid */
+}
+
+.contact-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(96, 96, 255, 0.07);
+    text-decoration: none;
+    color: white; /* Zorgt dat tekst wit blijft bij hover */
+}
+
+/* Styling voor de 'snelste' label */
+.fastest-label {
+    background: linear-gradient(to right, #00ffaa, #6060ff);
+    color: #fff; /* Tekstkleur van het label aangepast naar wit */
+    font-size: 0.6rem;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 36px;
+    text-transform: uppercase;
+    line-height: 1;
+    position: absolute;
+    top: -8px; /* Positie aangepast, net boven de hoek van de kaart */
+    right: -30px; /* Positie aangepast, net buiten de hoek van de kaart */
+    z-index: 10;
+    white-space: nowrap; /* Voorkomt dat de tekst breekt */
+}
+
+/* Stijl voor de social media icoontjes */
+.social-icon .icon-gradient {
+    transition: transform 0.2s ease;
+}
+
+.social-icon:hover .icon-gradient {
+    transform: scale(1.1);
+}
+
+/* Algemene styling voor alle Bootstrap buttons */
+/* Deze blijft generiek, maar wordt overschreven door .btn-contact */
+.btn {
+    text-decoration: none;
+    display: inline-block;
+    padding: .5rem 1rem;
+    border-radius: .375rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+}
+
+/* Specifieke styling voor de contactknoppen */
+.btn-contact {
+    background-color: #222 !important;
+    border: 1px solid #cccccc40 !important;
+    color: #fff !important;
+    transition: 0.2s ease-in;
+    text-decoration: none; /* Zorgt dat de link binnen de kaart niet onderstreept is */
+}
+
+.btn-contact:hover {
+    border-color: #ccc !important; /* Verhoog de zichtbaarheid van de rand bij hover */
+    color: #fff !important;
+}
+
+/* Specifieke styling voor de afgeronde knoppen (als ze ook btn-contact zijn) */
+.btn-contact.rounded-pill {
+    border-radius: 50rem !important; /* Voor volledig afgeronde knoppen */
+    padding: .5rem 1rem; /* Zorg voor voldoende padding */
+    font-weight: 700; /* fw-bold specificatie */
+}
+
+/* Responsive adjustments for overall sections */
+@media (max-width: 992px) {
+    .contact-card {
+        padding: 1.5rem;
+    }
+    .contact-card h3 {
+        font-size: 1.8rem;
+    }
+    .contact-card .fastest-label {
+        font-size: 0.65rem;
+        top: -8px; /* Aanpassen voor kleiner scherm */
+        right: -8px; /* Aanpassen voor kleiner scherm */
+    }
+    .social-icon .icon-gradient {
+        font-size: 2.5em !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-card {
+        padding: 1.2rem;
+    }
+    .contact-card h3 {
+        font-size: 1.6rem;
+    }
+    .fastest-label {
+        font-size: 0.6rem;
+        top: -6px;
+        right: -6px;
+    }
+    .social-icon .icon-gradient {
+        font-size: 2.2em !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-card {
+        padding: 1rem;
+    }
+    .contact-card h3 {
+        font-size: 1.4rem;
+    }
+    .contact-card p {
+        font-size: 0.8em;
+    }
+    .social-icon .icon-gradient {
+        font-size: 1.8em !important;
+    }
+    .fastest-label {
+        font-size: 0.55rem;
+        top: -4px;
+        right: -4px;
+    }
+}
+
+/* Overige bestaande CSS (ongewijzigd van de vorige iteratie) */
+#hero-bio {
+    background-color: var(--background-color);
+    padding-top: 100px;
+    padding-bottom: 100px;
+    text-align: center;
+    overflow: hidden;
+    border-bottom: 2px solid #0d0d0d;
+    margin-top: 0 !important;
+}
+
+#hero-bio::after {
+    display: none;
+}
+
+#hero-bio h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4.8em;
+    margin-bottom: 20px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: #ffffff;
+}
+
+#hero-bio p.sub-tagline {
+    font-size: 1.4em;
+    color: var(--text);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.page-section {
+    overflow: hidden;
+}
+
+.page-section .section-subtitle {
+    color: var(--text);
+    margin-bottom: 60px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#personal-story .content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    margin: 0 auto;
+    text-align: left;
+    width: 100%;
+}
+
+#personal-story .profile-img-wrapper {
+    flex-shrink: 0;
+    width: 430px;
+    height: 550px;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 0px solid #cccccc40; /* Corrected to 0px for visual if it's the main image */
+}
+
+#personal-story .profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+    box-shadow: none;
+    display: block;
+    transition: 0.3s ease;
+}
+
+#personal-story .profile-img:hover {
+    transform: scale(1.1);
+    transition: 0.3s ease;
+}
+
+#personal-story .text-content {
+    flex-grow: 1;
+}
+
+#personal-story .text-content h3 {
+    color: #a3a3a3;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+#personal-story .text-content h2 {
+    color: #ffffff;
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+#personal-story .text-content p {
+    color: var(--text);
+}
+
+#dj-philosophy {
+    padding: 48px 32px;
+}
+
+#dj-philosophy .philosophy-blocks-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.philosophy-block {
+    padding: 60px 40px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.philosophy-block:nth-child(even) {
+    background-color: var(--section-bg);
+}
+
+.philosophy-block:nth-child(odd) {
+    background-color: var(--background-color);
+}
+
+.philosophy-block .philosophy-number {
+    font-size: 6em;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 20px;
+    background-image: linear-gradient(9deg, var(--main-color-aqua) 30%, var(--main-color-violet) 70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.philosophy-block:hover .philosophy-number {
+    transform: scale(1.15);
+}
+
+.philosophy-block h3 {
+    font-size: 2.5em;
+    color: #ffffff;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.philosophy-block p {
+    font-size: 0.9rem;
+    color: var(--text);
+    margin: 0 auto;
+    text-align: left;
+}
+
+#press-media .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.press-photo-card {
+    background-color: var(--background-color);
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    border: 1px solid #282828;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.press-photo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.press-photo-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid #282828;
+}
+
+.press-photo-card .photo-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.press-photo-card .photo-info h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3em;
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.press-photo-card .photo-info p {
+    color: var(--text);
+    margin-bottom: 15px;
+    font-size: 0.9em;
+}
+
+#simple-slider {
+    padding-bottom: 80px;
+}
+
+#creativeJourneyCarousel {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border: 2px solid #282828;
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.carousel-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2));
+    color: #ffffff;
+    padding: 30px 20px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+    right: 0;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+    z-index: 5;
+}
+
+#creativeJourneyCarousel:hover .carousel-caption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.carousel-caption h5 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.carousel-caption p {
+    font-size: 1.1em;
+    margin-bottom: 0;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    opacity: 1;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    border: none;
+    padding: 0;
+}
+
+.carousel-control-prev {
+    left: 20px;
+}
+
+.carousel-control-next {
+    right: 20px;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    color: #fff;
+    opacity: 1;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 25px;
+    height: 25px;
+    background-size: 100% 100%;
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 11;
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    opacity: 1;
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+    background-clip: padding-box;
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.carousel-indicators button.active,
+.carousel-indicators button:hover {
+    background-color: var(--main-color-aqua);
+    transform: scale(1.2);
+}
+
+        /* Responsive adjustments for overall sections */
+        @media (max-width: 992px) {
+            #hero-bio h1 {
+                font-size: 3.8em;
+            }
+            #hero-bio p.sub-tagline {
+                font-size: 1.1em;
+            }
+            #personal-story .content-wrapper {
+                flex-direction: column;
+                gap: 30px;
+            }
+            #personal-story .profile-img-wrapper {
+                width: 280px;
+                height: 280px;
+            }
+            #personal-story .text-content h2,
+            #personal-story .text-content h3,
+            #personal-story .text-content p {
+                text-align: center;
+            }
+            .page-section h2 {
+                font-size: 2.8em;
+            }
+            .page-section .section-subtitle {
+                font-size: 1.1em;
+            }
+            #dj-philosophy .philosophy-blocks-container {
+                max-width: 100%;
+            }
+            .philosophy-block {
+                padding: 40px 25px;
+            }
+            .philosophy-block .philosophy-number {
+                font-size: 5em;
+            }
+            .philosophy-block h3 {
+                font-size: 2.2em;
+            }
+            .philosophy-block p {
+                font-size: 0.85rem;
+            }
+            .photo-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .press-photo-card img {
+                height: 180px;
+            }
+            /* Responsive adjustments for Bootstrap Carousel */
+            .carousel-caption h5 {
+                font-size: 1.5em;
+            }
+            .carousel-caption p {
+                font-size: 1em;
+            }
+
+            /* Contact Section Specific Responsive Adjustments */
+            .contact-card {
+                padding: 1.5rem; /* Reduce padding on smaller screens */
+            }
+            .contact-card h3 {
+                font-size: 1.8rem; /* Adjust heading size */
+            }
+            .contact-card .fastest-label {
+                font-size: 0.65rem; /* Smaller label */
+                top: 8px; /* Aanpassen voor kleiner scherm */
+                right: 8px; /* Aanpassen voor kleiner scherm */
+            }
+            .social-icon .icon-gradient {
+                font-size: 2.5em !important; /* Adjust social icon size */
+            }
+        }
+
+        @media (max-width: 768px) {
+            #hero-bio {
+                padding: 80px 0;
+            }
+            #hero-bio h1 {
+                font-size: 3em;
+            }
+            #hero-bio p.sub-tagline {
+                font-size: 1em;
+            }
+            .page-section {
+                padding: 60px 0;
+            }
+            .page-section h2 {
+                font-size: 2.2em;
+                margin-bottom: 10px;
+            }
+            .page-section .section-subtitle {
+                font-size: 1em;
+                margin-bottom: 40px;
+            }
+            #personal-story .profile-img-wrapper {
+                width: 250px;
+                height: 250px;
+            }
+            .btn-reserveer,
+            .btn-fotos {
+                font-size: 1em;
+                padding: 12px 25px;
+            }
+            .press-photo-card img {
+                height: 150px;
+            }
+            #dj-philosophy {
+                padding: 80px 0;
+            }
+            .philosophy-block .philosophy-number {
+                font-size: 4em;
+            }
+            .philosophy-block h3 {
+                font-size: 1.8em;
+            }
+            .philosophy-block p {
+                font-size: 0.8rem;
+            }
+            /* Responsive adjustments for Bootstrap Carousel */
+            .carousel-control-prev,
+            .carousel-control-next {
+                width: 50px;
+                height: 50px;
+            }
+            .carousel-control-prev {
+                left: 10px;
+            }
+            .carousel-control-next {
+                right: 10px;
+            }
+            .carousel-control-prev-icon,
+            .carousel-control-next-icon {
+                width: 20px;
+                height: 20px;
+            }
+            .carousel-caption {
+                padding: 20px 15px 15px;
+            }
+            .carousel-caption h5 {
+                font-size: 1.3em;
+            }
+            .carousel-caption p {
+                font-size: 0.9em;
+            }
+            .carousel-indicators {
+                bottom: 10px;
+            }
+            .carousel-indicators button {
+                width: 10px;
+                height: 10px;
+            }
+
+            /* Contact Section Specific Responsive Adjustments */
+            .contact-card {
+                padding: 1.2rem; /* Further reduce padding on smaller screens */
+            }
+            .contact-card h3 {
+                font-size: 1.6rem; /* Adjust heading size */
+            }
+            .fastest-label {
+                font-size: 0.6rem; /* Aanpassen voor kleiner scherm */
+                top: 6px;
+                right: 6px;
+            }
+            .social-icon .icon-gradient {
+                font-size: 2.2em !important; /* Adjust social icon size */
+            }
+        }
+
+        @media (max-width: 480px) {
+            #hero-bio {
+                padding: 60px 0;
+            }
+            #hero-bio h1 {
+                font-size: 2.5em;
+                letter-spacing: 0px;
+            }
+            #hero-bio p.sub-tagline {
+                font-size: 0.9em;
+            }
+            .page-section {
+                padding: 40px 0;
+            }
+            .page-section h2 {
+                font-size: 1.8em;
+            }
+            #personal-story .profile-img-wrapper {
+                width: 200px;
+                height: 200px;
+            }
+            #personal-story .text-content h2 {
+                font-size: 2em;
+            }
+            #personal-story .text-content p {
+                font-size: 1em;
+            }
+            .philosophy-block {
+                padding: 30px 20px;
+            }
+            .philosophy-block .philosophy-number {
+                font-size: 3.25em;
+            }
+            .philosophy-block h3 {
+                font-size: 1.6em;
+            }
+            .philosophy-block p {
+                font-size: 0.75rem;
+            }
+            /* Responsive adjustments for Bootstrap Carousel */
+            .carousel-control-prev,
+            .carousel-control-next {
+                width: 40px;
+                height: 40px;
+            }
+            .carousel-control-prev-icon,
+            .carousel-control-next-icon {
+                width: 18px;
+                height: 18px;
+            }
+            .carousel-caption {
+                padding: 15px 10px 10px;
+            }
+            .carousel-caption h5 {
+                font-size: 1.1em;
+            }
+            .carousel-caption p {
+                font-size: 0.8em;
+            }
+            .carousel-indicators {
+                bottom: 5px;
+                gap: 5px;
+            }
+            .carousel-indicators button {
+                width: 8px;
+                height: 8px;
+            }
+
+            /* Contact Section Specific Responsive Adjustments */
+            .contact-card {
+                padding: 1rem; /* Further reduce padding on very small screens */
+            }
+            .contact-card h3 {
+                font-size: 1.4rem; /* Further adjust heading size */
+            }
+            .contact-card p {
+                font-size: 0.8em; /* Adjust paragraph size */
+            }
+            .social-icon .icon-gradient {
+                font-size: 1.8em !important; /* Further adjust social icon size */
+            }
+            .fastest-label {
+                font-size: 0.55rem; /* Extra aanpassing voor hele kleine schermen */
+                top: 4px;
+                right: 4px;
+            }
+        }

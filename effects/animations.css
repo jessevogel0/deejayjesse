@@ -1,0 +1,135 @@
+/* animations.css */
+
+/* Standaard staat van elementen die moeten animeren bij scrollen */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px); /* Standaard: Start iets lager */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform; /* Hint voor de browser voor betere prestaties */
+}
+
+/* Staat wanneer het element zichtbaar wordt (standaard animatie) */
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Fade-in effect --- */
+.animate-on-scroll.fade-in {
+    opacity: 0;
+    transform: translateY(0); /* Geen Y-translatie voor alleen fade */
+    transition-property: opacity; /* Animeer alleen opacity */
+    transition-duration: 0.8s;
+    transition-timing-function: ease-out;
+}
+.animate-on-scroll.fade-in.is-visible {
+    opacity: 1;
+}
+
+/* --- Slide-in-left effect --- */
+.animate-on-scroll.slide-in-left {
+    opacity: 0;
+    transform: translateX(-50px); /* Start links buiten beeld */
+    transition-property: opacity, transform;
+    transition-duration: 0.6s;
+    transition-timing-function: ease-out;
+}
+.animate-on-scroll.slide-in-left.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* --- Slide-in-right effect --- */
+.animate-on-scroll.slide-in-right {
+    opacity: 0;
+    transform: translateX(50px); /* Start rechts buiten beeld */
+    transition-property: opacity, transform;
+    transition-duration: 0.6s;
+    transition-timing-function: ease-out;
+}
+.animate-on-scroll.slide-in-right.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* --- Slide-up effect (expliciet) --- */
+.animate-on-scroll.slide-up {
+    opacity: 0;
+    transform: translateY(50px); /* Start lager */
+    transition-property: opacity, transform;
+    transition-duration: 0.6s;
+    transition-timing-function: ease-out;
+}
+.animate-on-scroll.slide-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Zoom-in effect --- */
+.animate-on-scroll.zoom-in {
+    opacity: 0;
+    transform: scale(0.8); /* Start kleiner */
+    transition-property: opacity, transform;
+    transition-duration: 0.5s;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Geeft een beetje 'bounce' */
+}
+.animate-on-scroll.zoom-in.is-visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* --- Rotate-in effect (van links) --- */
+.animate-on-scroll.rotate-in-left {
+    opacity: 0;
+    transform: translateX(-100px) rotate(-90deg); /* Start links en gedraaid */
+    transform-origin: left bottom; /* Draaipunt */
+    transition-property: opacity, transform;
+    transition-duration: 0.7s;
+    transition-timing-function: ease-out;
+}
+.animate-on-scroll.rotate-in-left.is-visible {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+}
+
+/* --- Rotate-in effect (van rechts) --- */
+.animate-on-scroll.rotate-in-right {
+    opacity: 0;
+    transform: translateX(100px) rotate(90deg); /* Start rechts en gedraaid */
+    transform-origin: right bottom; /* Draaipunt */
+    transition-property: opacity, transform;
+    transition-duration: 0.7s;
+    transition-timing-function: ease-out;
+}
+.animate-on-scroll.rotate-in-right.is-visible {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+}
+
+/* --- Flip-in (X-as) --- */
+.animate-on-scroll.flip-in-x {
+    opacity: 0;
+    transform: perspective(1000px) rotateX(-90deg);
+    transform-origin: 50% 0; /* Draai vanaf de bovenkant */
+    transition-property: opacity, transform;
+    transition-duration: 0.8s;
+    transition-timing-function: ease-in-out;
+}
+.animate-on-scroll.flip-in-x.is-visible {
+    opacity: 1;
+    transform: perspective(1000px) rotateX(0deg);
+}
+
+/* --- Flip-in (Y-as) --- */
+.animate-on-scroll.flip-in-y {
+    opacity: 0;
+    transform: perspective(1000px) rotateY(-90deg);
+    transform-origin: 0 50%; /* Draai vanaf de linkerkant */
+    transition-property: opacity, transform;
+    transition-duration: 0.8s;
+    transition-timing-function: ease-in-out;
+}
+.animate-on-scroll.flip-in-y.is-visible {
+    opacity: 1;
+    transform: perspective(1000px) rotateY(0deg);
+}
